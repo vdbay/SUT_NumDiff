@@ -2,7 +2,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Disabled;
 
 public class NumberDifferenceTest {
     private CalcNUmberDifference sut;
@@ -174,7 +173,7 @@ public class NumberDifferenceTest {
 
     //P5 No Group 0x Loop
     @Test
-    public void testNoGroup(){
+    public void testNoGroup_01(){
         int selisih=0;
         String actual, expected;
         expected="Difference : 0\nNon group, There's no difference";
@@ -186,7 +185,7 @@ public class NumberDifferenceTest {
 
     //P6 No Group 1x Loop
     @Test
-    public void testNoGroup(){
+    public void testNoGroup_02(){
         int selisih=0;
         String actual, expected;
         expected="Difference : 0\nNon group, There's no difference";
