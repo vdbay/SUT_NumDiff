@@ -20,12 +20,13 @@ public class NumberDifferenceTest {
         sut = new CalcNUmberDifference();
     }
 
+    //P1-1 Range N Tidak Valid Batas Bawah
     @Test
-    public void testInputNBilLuarRange_01() {
+    public void testInputNBilLuarRangeBatasBawah_01() {
         // (1) setup (arrange, build)
         int jumlahDeretBil;
         boolean actual, expected;
-        jumlahDeretBil = 15; // bukan berada pada range 1-10
+        jumlahDeretBil = 0; // bukan berada pada range 1-10
         expected = false;
 
         // (2) exercise (act, operate)
@@ -35,13 +36,14 @@ public class NumberDifferenceTest {
         assertEquals(expected, actual);
     }
 
+    //P1-2 Range N Tidak Valid Batas Atas
     @Test
-    public void testInputNBilDalamRange_01() {
+    public void testInputNBilLuarRangeBatasAtas_01() {
         // (1) setup (arrange, build)
         int jumlahDeretBil;
         boolean actual, expected;
-        jumlahDeretBil = 5; // berada pada range 1-10
-        expected = true;
+        jumlahDeretBil = 11; // bukan berada pada range 1-10
+        expected = false;
 
         // (2) exercise (act, operate)
         actual = sut.validateRangeInputMaxDeret(jumlahDeretBil);
@@ -50,17 +52,7 @@ public class NumberDifferenceTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testNoGroup(){
-        int selisih=0;
-        String actual, expected;
-        expected="Difference : 0\nNon group, There's no difference";
-
-        actual=sut.groupingDifference(selisih);
-
-        assertEquals(expected,actual);
-    }
-
+    //P2-1 Group 1 Batas Bawah
     @Test
     public void testGroup1BatasBawah_01(){
         int selisih=1;
@@ -72,6 +64,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P2-2 Group 1 Batas Bawah
     @Test
     public void testGroup1BatasBawah_02(){
         int selisih=2;
@@ -83,6 +76,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P2-3 Group 1 Batas Atas
     @Test
     public void testGroup1BatasAtas_01(){
         int selisih=9;
@@ -94,6 +88,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P2-4 Group 1 Batas Atas
     @Test
     public void testGroup1BatasAtas_02(){
         int selisih=10;
@@ -105,6 +100,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P3-1 Group 2 Batas Bawah
     @Test
     public void testGroup2BatasBawah_01(){
         int selisih=11;
@@ -116,6 +112,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P3-2 Group 2 Batas Bawah
     @Test
     public void testGroup2BatasBawah_02(){
         int selisih=12;
@@ -127,6 +124,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P3-3 Group 2 Batas Atas
     @Test
     public void testGroup2BatasAtas_01(){
         int selisih=49;
@@ -138,6 +136,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P3-4 Group 2 Batas Atas
     @Test
     public void testGroup2BatasAtas_02(){
         int selisih=50;
@@ -149,6 +148,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P4-1 Group 3 Batas Bawah
     @Test
     public void testGroup3BatasBawah_01(){
         int selisih=51;
@@ -160,6 +160,7 @@ public class NumberDifferenceTest {
         assertEquals(expected,actual);
     }
 
+    //P4-2 Group 3 Batas Bawah
     @Test
     public void testGroup3BatasBawah_02(){
         int selisih=52;
@@ -170,4 +171,32 @@ public class NumberDifferenceTest {
 
         assertEquals(expected,actual);
     }
+
+    //P5 No Group 0x Loop
+    @Test
+    public void testNoGroup(){
+        int selisih=0;
+        String actual, expected;
+        expected="Difference : 0\nNon group, There's no difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    //P6 No Group 1x Loop
+    @Test
+    public void testNoGroup(){
+        int selisih=0;
+        String actual, expected;
+        expected="Difference : 0\nNon group, There's no difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+/////////////////////////////////////////////////////
+
+
+
 }
