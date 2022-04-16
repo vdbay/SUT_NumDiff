@@ -50,4 +50,124 @@ public class NumberDifferenceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testNoGroup(){
+        int selisih=0;
+        String actual, expected;
+        expected="Difference : 0\nNon group, There's no difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup1BatasBawah_01(){
+        int selisih=1;
+        String actual, expected;
+        expected="Difference : 1\nGroup 1, Small Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup1BatasBawah_02(){
+        int selisih=2;
+        String actual, expected;
+        expected="Difference : 2\nGroup 1, Small Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup1BatasAtas_01(){
+        int selisih=9;
+        String actual, expected;
+        expected="Difference : 9\nGroup 1, Small Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup1BatasAtas_02(){
+        int selisih=10;
+        String actual, expected;
+        expected="Difference : 10\nGroup 1, Small Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup2BatasBawah_01(){
+        int selisih=11;
+        String actual, expected;
+        expected="Difference : 11\nGroup 2, Medium Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup2BatasBawah_02(){
+        int selisih=12;
+        String actual, expected;
+        expected="Difference : 12\nGroup 2, Medium Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup2BatasAtas_01(){
+        int selisih=49;
+        String actual, expected;
+        expected="Difference : 49\nGroup 2, Medium Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup2BatasAtas_02(){
+        int selisih=50;
+        String actual, expected;
+        expected="Difference : 50\nGroup 2, Medium Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup3BatasBawah_01(){
+        int selisih=51;
+        String actual, expected;
+        expected="Difference : 51\nGroup 3, Large Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void testGroup3BatasBawah_02(){
+        int selisih=52;
+        String actual, expected;
+        expected="Difference : 52\nGroup 3, Large Difference";
+
+        actual=sut.groupingDifference(selisih);
+
+        assertEquals(expected,actual);
+    }
 }
