@@ -195,8 +195,4 @@ public class NumberDifferenceTest {
 
         assertEquals(expected,actual);
     }
-/////////////////////////////////////////////////////
-
-
-
 }
