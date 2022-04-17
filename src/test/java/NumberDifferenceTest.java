@@ -3,195 +3,237 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class NumberDifferenceTest {
     private CalcNUmberDifference sut;
 
-    /**
-     * Setup = inisiasi sebelum test dijalankan, preparation object
-     * --> pay attention to keep components and test cases small,
-     * --> the trade-off seems acceptable.
-     * --> implicit setup can be used to deine the fixture common for all tests.
-     * --> Small in-line and delegate setup statements may supplement ..
-     *     the speciic preconditions on per-test basis.
-     * */
     @Before
     public void setUp() throws Exception {
         sut = new CalcNUmberDifference();
     }
 
-    //P1-1 Range N Tidak Valid Batas Bawah
+    //P1 Validate Range N - Outside Range
     @Test
-    public void testInputNBilLuarRangeBatasBawah_01() {
-        // (1) setup (arrange, build)
-        int jumlahDeretBil;
+    public void validateRange_Outside(){
         boolean actual, expected;
-        jumlahDeretBil = 0; // bukan berada pada range 1-10
-        expected = false;
+        int n;
+        n=-1;
+        expected=false;
 
-        // (2) exercise (act, operate)
-        actual = sut.validateRangeInputMaxDeret(jumlahDeretBil);
-
-        // (3) verify (assert, check)
-        assertEquals(expected, actual);
-    }
-
-    //P1-2 Range N Tidak Valid Batas Atas
-    @Test
-    public void testInputNBilLuarRangeBatasAtas_01() {
-        // (1) setup (arrange, build)
-        int jumlahDeretBil;
-        boolean actual, expected;
-        jumlahDeretBil = 11; // bukan berada pada range 1-10
-        expected = false;
-
-        // (2) exercise (act, operate)
-        actual = sut.validateRangeInputMaxDeret(jumlahDeretBil);
-
-        // (3) verify (assert, check)
-        assertEquals(expected, actual);
-    }
-
-    //P2-1 Group 1 Batas Bawah
-    @Test
-    public void testGroup1BatasBawah_01(){
-        int selisih=1;
-        String actual, expected;
-        expected="Difference : 1\nGroup 1, Small Difference";
-
-        actual=sut.groupingDifference(selisih);
+        actual=sut.validateRangeInputMaxDeret(n);
 
         assertEquals(expected,actual);
     }
 
-    //P2-2 Group 1 Batas Bawah
+    //P2 Validate Group 1 - Double Loop
     @Test
-    public void testGroup1BatasBawah_02(){
-        int selisih=2;
-        String actual, expected;
-        expected="Difference : 2\nGroup 1, Small Difference";
+    public void validateGroup_1DoubleLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=2;
+        deret.add(1);
+        deret.add(2);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=1;
+        stringExpected="Difference : 1\nGroup 1, Small Difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P2-3 Group 1 Batas Atas
+    //P3 Validate Group 1 - M Loop
     @Test
-    public void testGroup1BatasAtas_01(){
-        int selisih=9;
-        String actual, expected;
-        expected="Difference : 9\nGroup 1, Small Difference";
+    public void validateGroup_1MLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=3;
+        deret.add(1);
+        deret.add(2);
+        deret.add(3);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=2;
+        stringExpected="Difference : 2\nGroup 1, Small Difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P2-4 Group 1 Batas Atas
+    //P4 Validate Group 2 - Double Loop
     @Test
-    public void testGroup1BatasAtas_02(){
-        int selisih=10;
-        String actual, expected;
-        expected="Difference : 10\nGroup 1, Small Difference";
+    public void validateGroup_2DoubleLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=2;
+        deret.add(1);
+        deret.add(12);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=11;
+        stringExpected="Difference : 11\nGroup 2, Medium Difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P3-1 Group 2 Batas Bawah
+    //P5 Validate Group 2 - M Loop
     @Test
-    public void testGroup2BatasBawah_01(){
-        int selisih=11;
-        String actual, expected;
-        expected="Difference : 11\nGroup 2, Medium Difference";
+    public void validateGroup_2MLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=3;
+        deret.add(1);
+        deret.add(2);
+        deret.add(12);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=11;
+        stringExpected="Difference : 11\nGroup 2, Medium Difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P3-2 Group 2 Batas Bawah
+    //P6 Validate Group 3 - Double Loop
     @Test
-    public void testGroup2BatasBawah_02(){
-        int selisih=12;
-        String actual, expected;
-        expected="Difference : 12\nGroup 2, Medium Difference";
+    public void validateGroup_3DoubleLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=2;
+        deret.add(1);
+        deret.add(52);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=51;
+        stringExpected="Difference : 51\nGroup 3, Large Difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P3-3 Group 2 Batas Atas
+    //P7 Validate Group 3 - M Loop
     @Test
-    public void testGroup2BatasAtas_01(){
-        int selisih=49;
-        String actual, expected;
-        expected="Difference : 49\nGroup 2, Medium Difference";
+    public void validateGroup_3MLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=3;
+        deret.add(1);
+        deret.add(2);
+        deret.add(52);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=51;
+        stringExpected="Difference : 51\nGroup 3, Large Difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P3-4 Group 2 Batas Atas
+    //P8 Validate No Group - Single Loop
     @Test
-    public void testGroup2BatasAtas_02(){
-        int selisih=50;
-        String actual, expected;
-        expected="Difference : 50\nGroup 2, Medium Difference";
+    public void validateNoGroup_SingleLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=1;
+        deret.add(1);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=0;
+        stringExpected="Difference : 0\nNon Group, There's no difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P4-1 Group 3 Batas Bawah
+    //P9 Validate No Group - Double Loop
     @Test
-    public void testGroup3BatasBawah_01(){
-        int selisih=51;
-        String actual, expected;
-        expected="Difference : 51\nGroup 3, Large Difference";
+    public void validateNoGroup_DoubleLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=2;
+        deret.add(1);
+        deret.add(1);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=0;
+        stringExpected="Difference : 0\nNon Group, There's no difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P4-2 Group 3 Batas Bawah
+    //P10 Validate No Group - M Loop
     @Test
-    public void testGroup3BatasBawah_02(){
-        int selisih=52;
-        String actual, expected;
-        expected="Difference : 52\nGroup 3, Large Difference";
+    public void validateNoGroup_MLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=3;
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=0;
+        stringExpected="Difference : 0\nNon Group, There's no difference";
 
-        assertEquals(expected,actual);
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
+
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 
-    //P5 No Group 0x Loop
+    //P11 Validate No Group - n Loop
     @Test
-    public void testNoGroup_01(){
-        int selisih=0;
-        String actual, expected;
-        expected="Difference : 0\nNon group, There's no difference";
+    public void validateNoGroup_nLoop(){
+        ArrayList<Integer> deret = new ArrayList<>();
+        int n, diffActual, diffExpected;
+        String stringActual, stringExpected;
+        n=10;
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
+        deret.add(1);
 
-        actual=sut.groupingDifference(selisih);
+        diffExpected=0;
+        stringExpected="Difference : 0\nNon Group, There's no difference";
 
-        assertEquals(expected,actual);
-    }
+        diffActual=sut.numberDiffirenceProcess(deret);
+        stringActual=sut.groupingDifference(diffActual);
 
-    //P6 No Group 1x Loop
-    @Test
-    public void testNoGroup_02(){
-        int selisih=0;
-        String actual, expected;
-        expected="Difference : 0\nNon group, There's no difference";
-
-        actual=sut.groupingDifference(selisih);
-
-        assertEquals(expected,actual);
+        assertEquals(diffExpected, diffActual);
+        assertEquals(stringExpected, stringActual);
     }
 }

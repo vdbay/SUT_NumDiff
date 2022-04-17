@@ -49,10 +49,10 @@ public class CalcNUmberDifference {
         }
 
         switch(group) {
-            case 1: message = message + "Small Difference"; break;
+            case 1: message = message + "Small Difference";
             case 2: message = message + "Medium Difference"; break;
-            case 3: message = message + "Large Difference"; break;
-            case 0: message = message + "There's no difference"; break;
+            case 3: message = message + "Large Differece"; break;
+            case 4: message = message + "There's no difference"; break;
         }
 
         return message;
@@ -62,7 +62,7 @@ public class CalcNUmberDifference {
     // mengembalikan true, jika nilai N sesuai dengan range
     // // sebaliknya mengembalikan false
     public boolean validateRangeInputMaxDeret(int nBil) {
-        if(nBil>=1 && nBil<=10) {
+        if(nBil>=1 || nBil<=10) {
             return true;
         }else {
             return false;
