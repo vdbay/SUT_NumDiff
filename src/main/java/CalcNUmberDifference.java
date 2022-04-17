@@ -34,9 +34,9 @@ public class CalcNUmberDifference {
         message = "Difference : " + diff;
         if(diff>50) {
             group = 3;
-        }else if(diff>=11 && diff<50) {
+        }else if(diff>=11 && diff<=50) {
             group = 2;
-        }else if(diff>=1 && diff<10){
+        }else if(diff>=1 && diff<=10){
             group = 1;
         }else {
             group = 0;
