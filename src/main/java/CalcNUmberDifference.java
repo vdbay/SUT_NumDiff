@@ -4,7 +4,7 @@ public class CalcNUmberDifference {
 
     // fungsi mengembalikan nilai selisih antara nilai terbesar dan terkecil
     public int numberDiffirenceProcess(ArrayList<Integer> deretBil) {
-        var difference = 0;
+        int difference = 0;
         int min;
         int max;
         int idxDeretBil;

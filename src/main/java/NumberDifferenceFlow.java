@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class NumberDifferenceFlow {
 
     public void execute() {
-        var layout =  new Screen();
-        var proc = new CalcNUmberDifference();
+        Screen layout =  new Screen();
+        CalcNUmberDifference proc = new CalcNUmberDifference();
         int nBil;
         int differenceBil;
         ArrayList<Integer> deretBil = new ArrayList<>();

@@ -16,8 +16,8 @@ public class Screen {
     }
 
     public int inputNumberSingleValue() {
-        var data = 0;
-        var inputInt = new Scanner(System.in);
+        int data = 0;
+        Scanner inputInt = new Scanner(System.in);
 
         data = inputInt.nextInt();
         return data;
@@ -25,7 +25,7 @@ public class Screen {
 
     public ArrayList<Integer> inputNumberListValue(int nBil) {
         ArrayList<Integer> data = new ArrayList<>();
-        var inputInt = new Scanner(System.in);
+        Scanner inputInt = new Scanner(System.in);
         int idx;
         int bil;
 
