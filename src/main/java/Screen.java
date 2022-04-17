@@ -16,17 +16,18 @@ public class Screen {
     }
 
     public int inputNumberSingleValue() {
-        int data = 0;
-        Scanner inputInt = new Scanner(System.in);
+        var data = 0;
+        var inputInt = new Scanner(System.in);
 
         data = inputInt.nextInt();
         return data;
     }
 
     public ArrayList<Integer> inputNumberListValue(int nBil) {
-        ArrayList<Integer> data = new ArrayList<Integer>();
-        Scanner inputInt = new Scanner(System.in);
-        int idx, bil;
+        ArrayList<Integer> data = new ArrayList<>();
+        var inputInt = new Scanner(System.in);
+        int idx;
+        int bil;
 
         for(idx=0; idx < nBil; idx++) {
             bil = inputInt.nextInt();
